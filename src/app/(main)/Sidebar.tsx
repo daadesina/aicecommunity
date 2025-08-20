@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { X } from "lucide-react";
 
+
+
 interface NavItem {
   href: string;
   label: string;
   icon: {
-    active: string;
-    inactive: string;
+    active: string | StaticImageData;
+    inactive: string | StaticImageData;
   };
 }
 
