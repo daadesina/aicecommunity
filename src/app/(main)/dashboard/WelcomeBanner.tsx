@@ -3,10 +3,14 @@
 import { motion } from "framer-motion";
 import { StaticImageData } from "next/image";
 
-type BannerType = { src: string } | StaticImageData;
+type BannerType = string | StaticImageData;
+
+function isStaticImageData(banner: BannerType): banner is StaticImageData {
+  return typeof banner !== "string";
+}
 
 export default function WelcomeBanner({ banner }: { banner: BannerType }) {
-  const bannerSrc = typeof banner === "string" ? banner : "src" in banner ? banner.src : banner.src;
+  const bannerSrc = isStaticImageData(banner) ? banner.src : banner;
 
   return (
     <motion.div

@@ -178,8 +178,8 @@ export default function MyCoursePage() {
             <li>
               Returns a greeting message (string) based on the user&apos;s age:
               <ul className="list-disc list-inside ml-6">
-                <li>If the age is 18 or above, return "Welcome, {`{name}`}! You are eligible."</li>
-                <li>Otherwise, return "Sorry, {`{name}`}! You are not eligible yet."</li>
+                <li>If the age is 18 or above, return &quot;Welcome, {`{name}`}! You are eligible.&quot;</li>
+                <li>Otherwise, return &quot;Sorry, {`{name}`}! You are not eligible yet.&quot;</li>
               </ul>
             </li>
           </ul>

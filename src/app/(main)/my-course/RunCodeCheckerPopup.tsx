@@ -105,7 +105,7 @@ export default function RunCodeCheckerPopup() {
                   </p>
                 </div>
                 <p className="text-xs text-gray-700 mt-1 ml-6">
-                  You're supposed to return different messages based on the user's age.
+                  You&apos;re supposed to return different messages based on the user&apos;s age.
                   Try using an if statement or a ternary operator to check if age ≥ 18 before deciding what to return.
                 </p>
               </div>
