@@ -1,5 +1,7 @@
 import { Menu } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+type ProfilePicType = string | StaticImageData;
 
 export default function Header({
   onMenuClick,
@@ -7,7 +9,7 @@ export default function Header({
   name,
 }: {
   onMenuClick: () => void;
-  profilePic: any;
+  profilePic: ProfilePicType;
   name: string;
 }) {
   return (
@@ -22,7 +24,7 @@ export default function Header({
         <h1 className="text-lg sm:text-xl font-semibold truncate">
           TypeScript Programming
         </h1>
-        <p className="text-xs sm:text-sm text-gray-500 ">
+        <p className="text-xs sm:text-sm text-gray-500">
           Total Score: 88.26%
         </p>
       </div>

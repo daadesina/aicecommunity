@@ -2,21 +2,32 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { X } from "lucide-react";
+
+interface NavItem {
+  href: string;
+  label: string;
+  icon: {
+    active: string;
+    inactive: string;
+  };
+}
+
+type LogoType = string | StaticImageData;
 
 export default function Sidebar({
   navItems,
   pathname,
   sidebarOpen,
   setSidebarOpen,
-  logo
+  logo,
 }: {
-  navItems: any[];
+  navItems: NavItem[];
   pathname: string;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
-  logo: any;
+  logo: LogoType;
 }) {
   return (
     <>
@@ -50,7 +61,11 @@ export default function Sidebar({
                   <X className="w-6 h-6 text-gray-700" />
                 </button>
               </div>
-              <NavList navItems={navItems} pathname={pathname} onClick={() => setSidebarOpen(false)} />
+              <NavList
+                navItems={navItems}
+                pathname={pathname}
+                onClick={() => setSidebarOpen(false)}
+              />
             </div>
           </motion.aside>
         )}
@@ -69,7 +84,15 @@ export default function Sidebar({
   );
 }
 
-function NavList({ navItems, pathname, onClick }: { navItems: any[], pathname: string, onClick?: () => void }) {
+function NavList({
+  navItems,
+  pathname,
+  onClick,
+}: {
+  navItems: NavItem[];
+  pathname: string;
+  onClick?: () => void;
+}) {
   return (
     <nav className="flex flex-col mt-5 space-y-2 px-4">
       {navItems.map((item) => {
